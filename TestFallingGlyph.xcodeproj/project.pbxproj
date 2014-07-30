@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8B2A87841987956D00602E3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A87831987956D00602E3A /* AppDelegate.swift */; };
-		8B2A87861987956D00602E3A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8B2A87851987956D00602E3A /* GameScene.sks */; };
 		8B2A87881987956D00602E3A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A87871987956D00602E3A /* GameScene.swift */; };
 		8B2A878A1987956D00602E3A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A87891987956D00602E3A /* GameViewController.swift */; };
 		8B2A878D1987956D00602E3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2A878B1987956D00602E3A /* Main.storyboard */; };
@@ -30,7 +29,6 @@
 		8B2A877E1987956D00602E3A /* TestFallingGlyph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFallingGlyph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2A87821987956D00602E3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B2A87831987956D00602E3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B2A87851987956D00602E3A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		8B2A87871987956D00602E3A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8B2A87891987956D00602E3A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8B2A878C1987956D00602E3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				8B2A87831987956D00602E3A /* AppDelegate.swift */,
-				8B2A87851987956D00602E3A /* GameScene.sks */,
 				8B2A87871987956D00602E3A /* GameScene.swift */,
 				8B2A87891987956D00602E3A /* GameViewController.swift */,
 				8B2A878B1987956D00602E3A /* Main.storyboard */,
@@ -196,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2A878F1987956D00602E3A /* Images.xcassets in Resources */,
-				8B2A87861987956D00602E3A /* GameScene.sks in Resources */,
 				8B2A878D1987956D00602E3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +399,7 @@
 				8B2A87A01987956D00602E3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B2A87A11987956D00602E3A /* Build configuration list for PBXNativeTarget "TestFallingGlyphTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +408,7 @@
 				8B2A87A31987956D00602E3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
