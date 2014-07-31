@@ -10,8 +10,8 @@ import SpriteKit
 import CoreText
 
 class GameScene: SKScene {
-	let upperString = "Willy"
-	let lowerString = "Liu"
+	let upperString = "太爽"
+	let lowerString = "了"
 	var upperGlyphs = [SKShapeNode]()
 	var lowerGlyphs = [SKShapeNode]()
 	var startX: CGFloat = 0.0
@@ -83,29 +83,42 @@ class GameScene: SKScene {
 	}
 	
 	private func getGlyphsFromString(string:String) -> [SKShapeNode] {
+		let paths = getCGPathsForString(string)
 		var result = [SKShapeNode]()
-		for char in string {
-			let glyphname = String(char)
-			let node = getShapeNodeForGlyphName(glyphname)
+		for path in paths {
+			let node = getShapeNodeFromCGPath(path)
 			result.append(node)
 		}
 		return result
 	}
 	
-	private func getShapeNodeForGlyphName(glyphName: String) -> SKShapeNode {
-		let myFont = CTFontCreateWithName("Helvetica", 72, nil)
-		let myGlyph = CTFontGetGlyphWithName(myFont, glyphName as NSString)
-		var myTransform = CGAffineTransformIdentity
-		
-		var path = withUnsafePointer(&myTransform) { (pointer: UnsafePointer<CGAffineTransform>) -> (CGPath) in
-			return CTFontCreatePathForGlyph(myFont, myGlyph, pointer)
-		}
-		
+	private func getShapeNodeFromCGPath(path: CGPath) -> SKShapeNode {
 		let node = SKShapeNode()
 		node.path = path
 		node.fillColor = SKColor.grayColor()
 		node.physicsBody = SKPhysicsBody(polygonFromPath: path)
 		return node
+	}
+	
+	private func getCGPathsForString(string: String) -> [CGPath] {
+		let myFont = CTFontCreateWithName("HiraKakuProN-W6", 72, nil)
+		var chars = [unichar]()
+		let length = (string as NSString).length
+		for i in Range(start: 0, end: length) {
+			chars.append((string as NSString).characterAtIndex(i))
+		}
+		var glyphs = [CGGlyph](count: length, repeatedValue: 0)
+		let getGlyphsResult = CTFontGetGlyphsForCharacters(myFont, chars, UnsafePointer<CGGlyph>(glyphs), length)
+		var myTransform = CGAffineTransformIdentity
+
+		var paths = [CGPath]()
+		for i in Range(start: 0, end: length) {
+			var path = withUnsafePointer(&myTransform) { (pointer: UnsafePointer<CGAffineTransform>) -> (CGPath) in
+				return CTFontCreatePathForGlyph(myFont, glyphs[i], pointer)
+			}
+			paths.append(path)
+		}
+		return paths
 	}
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
